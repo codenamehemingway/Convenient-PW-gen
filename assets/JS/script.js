@@ -29,6 +29,34 @@ var abc = [
   "y",
   "z",
 ];
+var abc2 = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
 var num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var sym = [
   "!",
@@ -76,19 +104,36 @@ function writePassword() {
 
 // Prompts that come up after you click generate password
 function generatePassword() {
+  var allChars = [];
+  // password conditions include a prompt or confirm and boolean if/else
   var passwordLength = prompt(
     "How many characters do you need your password to be?  Please choose between 8 and 128."
   );
-
-  var num = confirm("Should your password include numbers?");
-
-  var abc = confirm("How about lowercase letters?");
-
-  var abc2 = confirm("Uppercase letters too?");
-
-  var sym = confirm("Lastly, how about special characters?");
-
-  var minimumCount = 8;
+  if (passwordLength < 8 || passwordLength > 128) {
+    alert(
+      "Password must be between 8 and 128 characters long! Please start over."
+    );
+  }
+  // attempting arrays found on https://www.w3schools.com/js/js_object_prototypes.asp
+  else {
+    if ((num = confirm("Should your password include numbers?"))) {
+      Array.prototype.push.apply(num);
+    }
+    if ((abc = confirm("How about lowercase letters?"))) {
+      Array.prototype.push.apply(abc);
+    }
+    if ((abc2 = confirm("Uppercase letters too?"))) {
+      Array.prototype.push.apply(abc2);
+    }
+    if ((sym = confirm("Lastly, how about special characters?"))) {
+      Array.prototype.push.apply(sym);
+    } else {
+      for (var i = 0; i < passwordLength; i++) {
+        var random = Math.floor(Math.random() * allChars.length);
+        password += allChars[random];
+      }
+    }
+  }
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);

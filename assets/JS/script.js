@@ -1,7 +1,7 @@
 // Assignment code here
 
 // setting Password variables
-var abcLower = [
+var abc = [
   "a",
   "b",
   "c",
@@ -62,12 +62,6 @@ var sym = [
   "}",
   "~",
 ];
-// button and prompt input variables:
-var enter;
-var confirmNumber;
-var confirmCharacter;
-var confirmUppercase;
-var confirmLowercase;
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -83,24 +77,18 @@ function writePassword() {
 // Prompts that come up after you click generate password
 function generatePassword() {
   var passwordLength = prompt(
-    "Please enter the number of characters you want for you new password.  Please choose between 8 and 128."
+    "How many characters do you need your password to be?  Please choose between 8 and 128."
   );
 
-  var numbers = confirm("Do you want numbers in your password?");
+  var num = confirm("Should your password include numbers?");
 
-  var lowerCases = confirm("Do you want lowercases in your password?");
+  var abc = confirm("How about lowercase letters?");
 
-  var upperCases = confirm("Do you want uppercases in your password?");
+  var abc2 = confirm("Uppercase letters too?");
 
-  var special = confirm("Do you want special characters in your password?");
+  var sym = confirm("Lastly, how about special characters?");
 
   var minimumCount = 8;
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-// This puts the password value into the textbox
-// Changed function input to use textcontent
-function UserInput(pw) {
-  document.getElementById("password").textContent = pw;
-}

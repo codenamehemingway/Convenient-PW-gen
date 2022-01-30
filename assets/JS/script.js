@@ -114,18 +114,18 @@ function generatePassword() {
       "Password must be between 8 and 128 characters long! Please start over."
     );
   }
-  // attempting arrays found on https://www.w3schools.com/js/js_object_prototypes.asp
+  // attempting arrays found on https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
   else {
-    if ((num = confirm("Should your password include numbers?"))) {
+    if (confirm("Should your password include numbers?")) {
       Array.prototype.push.apply(num);
     }
-    if ((abc = confirm("How about lowercase letters?"))) {
+    if (confirm("How about lowercase letters?")) {
       Array.prototype.push.apply(abc);
     }
-    if ((abc2 = confirm("Uppercase letters too?"))) {
+    if (confirm("Uppercase letters too?")) {
       Array.prototype.push.apply(abc2);
     }
-    if ((sym = confirm("Lastly, how about special characters?"))) {
+    if (confirm("Lastly, how about special characters?")) {
       Array.prototype.push.apply(sym);
     } else {
       for (var i = 0; i < passwordLength; i++) {

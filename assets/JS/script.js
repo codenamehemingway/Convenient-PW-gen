@@ -105,6 +105,7 @@ function writePassword() {
 // Prompts that come up after you click generate password
 function generatePassword() {
   var allChars = [];
+  var resultPass = "";
   // password conditions include a prompt or confirm and boolean if/else
   var passwordLength = prompt(
     "How many characters do you need your password to be?  Please choose between 8 and 128."
@@ -117,20 +118,20 @@ function generatePassword() {
   // attempting arrays found on https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
   else {
     if (confirm("Should your password include numbers?")) {
-      Array.prototype.push.apply(num);
+      Array.prototype.push.apply(allChars, num);
     }
     if (confirm("How about lowercase letters?")) {
-      Array.prototype.push.apply(abc);
+      Array.prototype.push.apply(allChars, abc);
     }
     if (confirm("Uppercase letters too?")) {
-      Array.prototype.push.apply(abc2);
+      Array.prototype.push.apply(allChars, abc2);
     }
     if (confirm("Lastly, how about special characters?")) {
-      Array.prototype.push.apply(sym);
+      Array.prototype.push.apply(allChars, sym);
     } else {
       for (var i = 0; i < passwordLength; i++) {
         var random = Math.floor(Math.random() * allChars.length);
-        password += allChars[random];
+        resultPass += allChars[random];
       }
     }
   }
